@@ -6,8 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collections;
+import java.util.Map;
+
 @Controller
 public class HelloController {
+    @GetMapping("/")
+    public Map<String, Object> greeting(){
+        return Collections.singletonMap("message","Hello, World");
+    }
+
     @GetMapping("hello")
     public String hello(Model model){
         model.addAttribute("data","hello!!");
